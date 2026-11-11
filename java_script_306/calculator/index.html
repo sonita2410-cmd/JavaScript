@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cal</h1>
+    <label for="">Enter your first number</label>
+    <input id="firstNumber" type="number">
+    <br>
+    <label>Enter your second Number</label>
+    <input id="SecondNumber" type="number">
+    <br>
+    <input type="button" id="add" value="+" onclick="add()">
+    <input type="button" id="sub" value="-" onclick="sub()">
+    <input type="button" id="divide" value="/" onclick="div()">
+    <input type="button" id="multi" value="*" onclick="multi()">
+    <input type="button" id="rem" value="%" onclick="rem()">
+    <br>
+    <input type="number" id="results">
+    <input type="text" id="warn">
+
+    <script>
+
+
+        function add() {
+            let firstNumber = document.getElementById("firstNumber").value;
+            let SecondNumber = document.getElementById("SecondNumber").value;
+            let results = document.getElementById("results");
+            let warn = document.getElementById("warn");
+            alert("123")
+            console.log(firstNumber, SecondNumber)
+            if (firstNumber & SecondNumber != 0) {
+                let add = parseFloat(firstNumber) + parseFloat(SecondNumber);
+                return results.value = add;
+            }
+            else {
+                return warn.value = "Do not enter a invaild number"
+            }
+        }
+        function sub() {
+            if (firstNumber & SecondNumber != 0) {
+                let sub = firstNumber - SecondNumber;
+                return results.value = sub;
+            }
+            else {
+                return warn.value = "Do not enter a invaild number";
+            }
+        }
+        function div() {
+            if (firstNumber & SecondNumber != 0) {
+                let div = firstNumber / SecondNumber;
+                return results.value = div;
+            }
+            else {
+                return warn.value = "Do not enter a invaild number"
+            }
+        }
+        function multi() {
+            if (firstNumber & SecondNumber != 0) {
+                let multi = firstNumber + SecondNumber
+                return results.value = multi
+            }
+            else {
+                return warn.value = "Do not enter a invaild number"
+            }
+        }
+        function rem() {
+            if (firstNumber & SecondNumber != 0) {
+                let rem = firstNumber + SecondNumber
+                return results.value = rem
+            }
+            else {
+                return warn.value = "Do not enter a invaild number"
+            }
+        }
+
+    </script>
+</body>
+
+</html>

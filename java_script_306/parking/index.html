@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="">Please Select Vehicle</label>
+    <select id="vehicle">
+        <option value="car">Car</option>
+        <option value="moto">Moto</option>
+    </select>
+    <br>
+    <br>
+    <label for="">Please Enter Time in:</label>
+    <input type="time" id="time_in"><br>
+    <Label>Please Enter Time Out:</Label>
+    <input type="time" id="time_out"><br>
+    <button onclick="calculate()">Caculate</button><br>
+    <div id="Result"></div>
+    <label for="">ថ្លៃផ្ញើរ រៀល</label>
+    <input type="text" id="total_riel" readonly><br>
+    <label for="">ថ្លៃផ្ញើរ ដុល្លា</label>
+    <input type="text" id="total_dollar" readonly>
+
+    <script>
+        function calculate() {
+            let vehicle = document.getElementById("vehicle").value;
+            let startTime = document.getElementById("time_in").value;
+            let endTime = document.getElementById("time_out").value;
+            if (startTime == "" || endTime == "") {
+                alert("Please enter parking Time");
+                return;
+            }
+            startTime = Number(startTime.split(":")[0]) * 60 + Number(startTime.split(":")[1]);
+            endTime = Number(endTime.split(":")[0]) * 60 + Number(endTime.split(":")[1]);
+
+            let totalMinutes = endTime - startTime
+            if (totalMinutes <= 0) {
+                totalMinutes = totalMinutes + 1440;
+            }
+            let hours = Math.max(1, Math.floor(totalMinutes / 60));
+            let normalRate;
+            let overtimeRate;
+            if (vehicle == "car") {
+                normalRate = 500;
+                overtimeRate = 1000;
+
+            } else {
+                normalRate = 200;
+                overtimeRate = 300;
+            }
+            let normalHours = Math.min(hours, 8);
+            let overtimeHours = Math.max(hours - 8, 0);
+            let totalFee = (normalHours * normalRate) + (overtimeHours * overtimeRate);
+            let dollar = totalFee / 4000;
+            document.getElementById("total_riel").value = totalFee.toLocaleString() + "Riel";
+            document.getElementById("total_dollar").value = dollar.toFixed(2) + "Dollar";
+
+
+
+
+
+        }
+    </script>
+</body>
+
+</html>

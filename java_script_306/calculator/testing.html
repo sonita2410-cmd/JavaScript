@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Cal</h1>
+    <label for="">Enter your first number</label>
+    <input id="firstNumber" type="number">
+    <br>
+    <label>Enter your second Number</label>
+    <input id="SecondNumber" type="number">
+    <br>
+    <button type="button" onclick="Calculate('+')">+</button>
+    <button type="button" onclick="Calculate('-')">-</button>
+    <button type="button" onclick="Calculate('*')">*</button>
+    <button type="button" onclick="Calculate('/')">/</button>
+    <button type="button" onclick="Calculate('%')">%</button>
+    <br>
+    <input type="number" id="results">
+    <input type="text" id="warn">
+    <!-- <p id="re"></p> -->
+
+    <script>
+        function Calculate(opetare) {
+            let firstNumber = document.getElementById("firstNumber").value;
+            let SecondNumber = document.getElementById("SecondNumber").value;
+            let results = document.getElementById("results");
+            let warn = document.getElementById("warn");
+            if (opetare == '+') {
+                let sum = parseFloat(firstNumber) + parseFloat(SecondNumber)
+                return results.value = sum
+                // return document.getElementById("re").innerHTML = sum;
+
+            }
+            else if (opetare == '-') {
+                let sub = parseFloat(firstNumber) - parseFloat(SecondNumber)
+                return results.value = sub
+            }
+            else if (opetare == '*') {
+                let multi = parseFloat(firstNumber) * parseFloat(SecondNumber)
+                return results.value = multi
+            }
+            else if (opetare == '/') {
+                if (Number(SecondNumber) != 0) {
+                    let div = parseFloat(firstNumber) / parseFloat(SecondNumber)
+                    return results.value = div.toFixed(2);
+                }
+                else {
+                    alert("enter gain")
+                }
+            }
+            else if (opetare == '%') {
+                let rem = parseFloat(firstNumber) % parseFloat(SecondNumber)
+                return results.value = rem
+            }
+
+        }
+    </script>
+</body>
+
+</html>
